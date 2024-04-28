@@ -3,189 +3,180 @@
     <div class="button-group">
       <el-link type="success" @click="test">测试连接性</el-link>
       <el-upload
-      style="display:inline-block"
-      action="#"
-      :auto-upload="false"
-      :on-change="onChange"
-      :limit="1"
-      :show-file-list="false"
-      accept=".xls,.xlsx"
-    >
-      <el-link style="" type="success">导入</el-link>
-    </el-upload>
+        style="display: inline-block"
+        action="#"
+        :auto-upload="false"
+        :on-change="onChange"
+        :limit="1"
+        :show-file-list="false"
+        accept=".xls,.xlsx"
+      >
+        <el-link style="" type="success">导入</el-link>
+      </el-upload>
       <el-link type="success" @click="exportExcel">导出</el-link>
     </div>
-      <el-table
-          :data="tableData"
-          border
-          :height="`calc(100vh - 130px)`"
-         >
-         <el-table-column
-         type="index"
-         label="序号"
-         width="50">
-       </el-table-column>
-          <el-table-column
-            prop="date"
-            label="日期"
-            width="180">
-          </el-table-column>
-          <el-table-column
-            prop="date"
-            label="分组"
-            width="180">
-          </el-table-column>
-          <el-table-column
-            prop="name"
-            label="姓名"
-            width="180">
-          </el-table-column>
-          <el-table-column
-            prop="address"
-            label="地址">
-          </el-table-column>
-          <el-table-column
-            prop="address"
-            label="状态">
-            <template slot-scope="scope">
-              {{scope.row.status || "成功"}}
-            </template>
-          </el-table-column>
-        </el-table>
-
-      
+    <el-table :data="tableData" border :height="`calc(100vh - 130px)`">
+      <el-table-column type="index" label="序号" width="50"> </el-table-column>
+      <el-table-column prop="date" label="日期" width="180"> </el-table-column>
+      <el-table-column prop="date" label="分组" width="180"> </el-table-column>
+      <el-table-column prop="name" label="姓名" width="180"> </el-table-column>
+      <el-table-column prop="address" label="地址"> </el-table-column>
+      <el-table-column prop="address" label="状态">
+        <template slot-scope="scope">
+          {{ scope.row.status || "成功" }}
+        </template>
+      </el-table-column>
+    </el-table>
   </div>
 </template>
 
 <script>
 // import excel from "@/utils/excel.js"
 // import * as XLSX from "xlsx"
-const xlsx = require('xlsx')
+const xlsx = require("xlsx");
 
 export default {
-  data:()=> {
-     return {
-        tableData: [{
-          date: '2016-05-03',
-          name: '王小虎',
-          province: '上海',
-          city: '普陀区',
-          address: '上海市普陀区金沙江路 1518 弄',
-          zip: 200333
-        }, {
-          date: '2016-05-02',
-          name: '王小虎',
-          province: '上海',
-          city: '普陀区',
-          address: '上海市普陀区金沙江路 1518 弄',
-          zip: 200333
-        }, {
-          date: '2016-05-04',
-          name: '王小虎',
-          province: '上海',
-          city: '普陀区',
-          address: '上海市普陀区金沙江路 1518 弄',
-          zip: 200333
-        }, {
-          date: '2016-05-01',
-          name: '王小虎',
-          province: '上海',
-          city: '普陀区',
-          address: '上海市普陀区金沙江路 1518 弄',
-          zip: 200333
-        }, {
-          date: '2016-05-08',
-          name: '王小虎',
-          province: '上海',
-          city: '普陀区',
-          address: '上海市普陀区金沙江路 1518 弄',
-          zip: 200333
-        }, {
-          date: '2016-05-06',
-          name: '王小虎',
-          province: '上海',
-          city: '普陀区',
-          address: '上海市普陀区金沙江路 1518 弄',
-          zip: 200333
-        }, {
-          date: '2016-05-07',
-          name: '王小虎',
-          province: '上海',
-          city: '普陀区',
-          address: '上海市普陀区金沙江路 1518 弄',
-          zip: 200333
-        }, {
-          date: '2016-05-07',
-          name: '王小虎',
-          province: '上海',
-          city: '普陀区',
-          address: '上海市普陀区金沙江路 1518 弄',
-          zip: 200333
-        }, {
-          date: '2016-05-07',
-          name: '王小虎',
-          province: '上海',
-          city: '普陀区',
-          address: '上海市普陀区金沙江路 1518 弄',
-          zip: 200333
-        }, {
-          date: '2016-05-07',
-          name: '王小虎',
-          province: '上海',
-          city: '普陀区',
-          address: '上海市普陀区金沙江路 1518 弄',
-          zip: 200333
-        }, {
-          date: '2016-05-07',
-          name: '王小虎',
-          province: '上海',
-          city: '普陀区',
-          address: '上海市普陀区金沙江路 1518 弄',
-          zip: 200333
-        }, {
-          date: '2016-05-07',
-          name: '王小虎',
-          province: '上海',
-          city: '普陀区',
-          address: '上海市普陀区金沙江路 1518 弄',
-          zip: 200333
-        }, {
-          date: '2016-05-07',
-          name: '王小虎',
-          province: '上海',
-          city: '普陀区',
-          address: '上海市普陀区金沙江路 1518 弄',
-          zip: 200333
-        }, {
-          date: '2016-05-07',
-          name: '王小虎',
-          province: '上海',
-          city: '普陀区',
-          address: '上海市普陀区金沙江路 1518 弄',
-          zip: 200333
-        }, {
-          date: '2016-05-07',
-          name: '王小虎',
-          province: '上海',
-          city: '普陀区',
-          address: '上海市普陀区金沙江路 1518 弄',
-          zip: 200333
-        }, {
-          date: '2016-05-07',
-          name: '王小虎',
-          province: '上海',
-          city: '普陀区',
-          address: '上海市普陀区金沙江路 1518 弄',
-          zip: 200333
-        }, {
-          date: '2016-05-07',
-          name: '王小虎',
-          province: '上海',
-          city: '普陀区',
-          address: '上海市普陀区金沙江路 1518 弄',
-          zip: 200333
-        }]
-      }
+  data: () => {
+    return {
+      tableData: [
+        {
+          date: "2016-05-03",
+          name: "王小虎",
+          province: "上海",
+          city: "普陀区",
+          address: "上海市普陀区金沙江路 1518 弄",
+          zip: 200333,
+        },
+        {
+          date: "2016-05-02",
+          name: "王小虎",
+          province: "上海",
+          city: "普陀区",
+          address: "上海市普陀区金沙江路 1518 弄",
+          zip: 200333,
+        },
+        {
+          date: "2016-05-04",
+          name: "王小虎",
+          province: "上海",
+          city: "普陀区",
+          address: "上海市普陀区金沙江路 1518 弄",
+          zip: 200333,
+        },
+        {
+          date: "2016-05-01",
+          name: "王小虎",
+          province: "上海",
+          city: "普陀区",
+          address: "上海市普陀区金沙江路 1518 弄",
+          zip: 200333,
+        },
+        {
+          date: "2016-05-08",
+          name: "王小虎",
+          province: "上海",
+          city: "普陀区",
+          address: "上海市普陀区金沙江路 1518 弄",
+          zip: 200333,
+        },
+        {
+          date: "2016-05-06",
+          name: "王小虎",
+          province: "上海",
+          city: "普陀区",
+          address: "上海市普陀区金沙江路 1518 弄",
+          zip: 200333,
+        },
+        {
+          date: "2016-05-07",
+          name: "王小虎",
+          province: "上海",
+          city: "普陀区",
+          address: "上海市普陀区金沙江路 1518 弄",
+          zip: 200333,
+        },
+        {
+          date: "2016-05-07",
+          name: "王小虎",
+          province: "上海",
+          city: "普陀区",
+          address: "上海市普陀区金沙江路 1518 弄",
+          zip: 200333,
+        },
+        {
+          date: "2016-05-07",
+          name: "王小虎",
+          province: "上海",
+          city: "普陀区",
+          address: "上海市普陀区金沙江路 1518 弄",
+          zip: 200333,
+        },
+        {
+          date: "2016-05-07",
+          name: "王小虎",
+          province: "上海",
+          city: "普陀区",
+          address: "上海市普陀区金沙江路 1518 弄",
+          zip: 200333,
+        },
+        {
+          date: "2016-05-07",
+          name: "王小虎",
+          province: "上海",
+          city: "普陀区",
+          address: "上海市普陀区金沙江路 1518 弄",
+          zip: 200333,
+        },
+        {
+          date: "2016-05-07",
+          name: "王小虎",
+          province: "上海",
+          city: "普陀区",
+          address: "上海市普陀区金沙江路 1518 弄",
+          zip: 200333,
+        },
+        {
+          date: "2016-05-07",
+          name: "王小虎",
+          province: "上海",
+          city: "普陀区",
+          address: "上海市普陀区金沙江路 1518 弄",
+          zip: 200333,
+        },
+        {
+          date: "2016-05-07",
+          name: "王小虎",
+          province: "上海",
+          city: "普陀区",
+          address: "上海市普陀区金沙江路 1518 弄",
+          zip: 200333,
+        },
+        {
+          date: "2016-05-07",
+          name: "王小虎",
+          province: "上海",
+          city: "普陀区",
+          address: "上海市普陀区金沙江路 1518 弄",
+          zip: 200333,
+        },
+        {
+          date: "2016-05-07",
+          name: "王小虎",
+          province: "上海",
+          city: "普陀区",
+          address: "上海市普陀区金沙江路 1518 弄",
+          zip: 200333,
+        },
+        {
+          date: "2016-05-07",
+          name: "王小虎",
+          province: "上海",
+          city: "普陀区",
+          address: "上海市普陀区金沙江路 1518 弄",
+          zip: 200333,
+        },
+      ],
+    };
   },
 
   components: {},
@@ -193,11 +184,25 @@ export default {
   mounted() {},
 
   methods: {
-    test(){
-      console.log(666)
+    test() {
+      console.log(666);
     },
-    importExcel(){},
-    exportExcel(){},
+    importExcel() {},
+    exportExcel() {
+      // 准备要导出的数据（对象数组）
+      let sheetData = [
+        { "name": "张三", age: 18, ip: "123", address: "北京市" },
+        {name: "李四", age: 19, ip: "2333", address: "上海市" },
+      ];
+      // 创建sheet对象
+      let sheet = xlsx.utils.json_to_sheet(sheetData);
+      // 创建一个工作薄
+      let wb = xlsx.utils.book_new();
+      // 将sheet对象放入到工作薄
+      xlsx.utils.book_append_sheet(wb, sheet, "Sheet1");
+      // 导出Excel文件
+      xlsx.writeFile(wb, "data.xlsx");
+    },
     async onChange(file) {
       /**
        * 1. 使用原生api去读取好的文件
@@ -244,31 +249,30 @@ export default {
       }
       return headers; // 经过上方一波操作遍历，得到最终的第一行头数据
     },
-  }
-}
-
+  },
+};
 </script>
 <style>
-.app-container{
+.app-container {
   margin-top: 0px;
 }
 .app-container ::-webkit-scrollbar {
-    display: block !important;
-    background-color: #fff;
-    width: 5px;
+  display: block !important;
+  background-color: #fff;
+  width: 5px;
 }
 .el-table__body-wrapper::-webkit-scrollbar-thumb {
-    border-radius:5px;
-    -webkit-box-shadow: inset 0 0 6px rgba(70, 57, 57, 0.3);
-    background-color: rgba(0, 0, 0, .1)
+  border-radius: 5px;
+  -webkit-box-shadow: inset 0 0 6px rgba(70, 57, 57, 0.3);
+  background-color: rgba(0, 0, 0, 0.1);
 }
 </style>
 <style scoped>
-.button-group{
-  height:20px;
+.button-group {
+  height: 20px;
   line-height: 20px;
   margin-bottom: 15px;
-  padding-left:5px;
+  padding-left: 5px;
 }
 
 ::v-deep .el-table__body tr,
