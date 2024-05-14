@@ -1,4 +1,5 @@
 import { defineStore } from "pinia"
+import SSH2 from "./SSH2"
 
 const state = () => ({
     sidebarStatus: {
@@ -12,6 +13,7 @@ export const useAppStore = defineStore({
     id: 'app',
     state,
     actions: {
+        // ...SSH2.actions,
         ToggleSideBar() {
             if (this.sidebarStatus.opened) {
                 localStorage.setItem('sidebarStatus', 1)

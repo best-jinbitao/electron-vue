@@ -1,0 +1,125 @@
+/*
+ * @Description: ag-grid样式初始化，单元格颜色等
+ * @Author: liujt
+ * @Date: 2021-12-24 17:05:00
+ * @LastEditors: qyz
+ * @LastEditTime: 2022-10-14 14:35:22
+ */
+ $blueColor: #0078d4;
+ $orangeColor: #ff8800;
+ $greenColor: #2ea121;
+ $redColor: #f54a45;
+ $fontBold: 600;
+ 
+ // 初始化
+ .ag-theme-alpine {
+     font-size: 12px;
+ 
+     .ag-root-wrapper {
+         border-left: none;
+         border-right: none;
+     }
+ 
+     .ag-row {
+         font-size: 12px;
+     }
+ 
+     .ag-header-cell {
+         padding-left: 8px;
+         padding-right: 8px;
+     }
+ 
+     .ag-cell {
+         padding-left: 7px;
+         padding-right: 7px;
+     }
+ }
+ 
+ // 单元格颜色：
+ .ag-cell {
+     &.statusDot {
+         &::before {
+             margin-top: 12px;
+         }
+     }
+ 
+     &.statusDotnotext {
+         &::before {
+             margin-top: 12px;
+         }
+     }
+ 
+     &.blueCo {
+         color: $blueColor;
+         font-weight: $fontBold;
+     }
+ 
+     &.orangeCo {
+         color: $orangeColor;
+         font-weight: $fontBold;
+     }
+ 
+     &.greenCo {
+         color: $greenColor;
+         font-weight: $fontBold;
+     }
+ 
+     &.redCo {
+         color: $redColor;
+         font-weight: $fontBold;
+     }
+ 
+     &.orangeText {
+         color: $orangeColor;
+     }
+ 
+     &.alignRight {
+         text-align: right;
+     }
+ 
+     &.infoCo {
+         color: rgba(0, 0, 0, 0.45);
+     }
+ 
+     &.bluenofontCo {
+         color: $blueColor;
+     }
+ 
+     &.warningnofontCo {
+         color: $orangeColor;
+     }
+ 
+     &.successnofontCo {
+         color: $greenColor;
+     }
+ 
+     &.infonofontCo {
+         color: rgba(0, 0, 0, 0.45);
+     }
+ 
+     &.errornofontCo {
+         color: $redColor;
+     }
+ }
+ 
+ // 行颜色
+ .warningRow {
+     background-color: rgb(255, 103, 14, .2) !important;
+ }
+ 
+ .successRow {
+     background-color: rgb(29, 255, 14, .2) !important;
+ }
+ 
+ .blueRow {
+     background-color: rgb(216 241 255) !important;
+ }
+ 
+ .currentRow {
+     background-color: #fceaac !important; // 行高亮
+ }
+ 
+ .transferCurrentRow {
+     background-color: #b2e1fa !important; // 使用数转移行高亮
+ }
+ 

@@ -50,6 +50,32 @@ export default [
       }
     ]
   },
+  {
+    path: '/commands',
+    component: Layout,
+    meta: { roles: ['admin', 'edit'] },
+    children: [
+      {
+        path: 'index',
+        name: '命令集',
+        component: () => import('@/views/commands/index'),
+        meta: { title: '命令集', icon: 'table' }
+      }
+    ]
+  },
+  {
+    path: '/pipeline',
+    component: Layout,
+    meta: { roles: ['admin', 'edit'] },
+    children: [
+      {
+        path: 'index',
+        name: '流水线',
+        component: () => import('@/views/pipeline/index'),
+        meta: { title: '流水线', icon: 'table' }
+      }
+    ]
+  },
   // {
   //   path: '/permission',
   //   component: Layout,

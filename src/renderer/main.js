@@ -15,6 +15,8 @@ import './icons'
 import '@/styles/index.scss'
 import '@/styles/dark-mode.scss'
 
+import 'ag-grid-community/dist/styles/ag-grid.css';
+import 'ag-grid-community/dist/styles/ag-theme-alpine.css';
 // 引入 i18n 语言包
 import VueI18n from 'vue-i18n'
 import loadLanguage from "./i18n"
@@ -43,6 +45,7 @@ const i18n = new VueI18n({
 Vue.use(ElementUI, {
   i18n: (key, value) => i18n.t(key, value)
 })
+
 
 Vue.config.productionTip = false
 

@@ -4,6 +4,12 @@
       <el-form-item label="活动名称">
         <el-input v-model="formData.name"></el-input>
       </el-form-item>
+      {{formData.test.split(/[(\r\n)\r\n]+/)}}
+            <el-form-item label="test">
+        <el-input v-model="formData.test" type="textarea"></el-input>
+      </el-form-item>
+      {{formData.test}}
+      {{"22222 333 444 ttt fff".split(/[(\r\n)\r\n]+/)}}
       <el-form-item label="活动地点">
         <el-select v-model="formData.region" placeholder="请选择活动地点">
           <el-option label="上海" value="上海"></el-option>
@@ -51,7 +57,8 @@ const formData = ref({
   delivery: false,
   type: [],
   resource: "",
-  desc: ""
+  desc: "",
+  test:''
 })
 const onSubmit = () => {
   console.log(this.form)
